@@ -1,6 +1,7 @@
 package com.coffee.shop.controller;
 
 import com.coffee.shop.controller.request.CreateCoffeeRequest;
+import com.coffee.shop.controller.response.CoffeeResponse;
 import com.coffee.shop.exception.CoffeeNotFound;
 import com.coffee.shop.model.Coffee;
 import com.coffee.shop.service.CoffeeService;
@@ -9,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,28 +25,72 @@ public class CoffeeController {
     }
 //get all coffees
     @GetMapping("/coffees")
-    public List<Coffee> getAllCoffees(){
-        return coffeeService.getAllCoffees();
+    public List<CoffeeResponse> getAllCoffees(){
+        List<Coffee> coffees = coffeeService.getAllCoffees();
+        List<CoffeeResponse> coffeeResponseList = new ArrayList<>();
+
+        for(Coffee coffee : coffees){
+            coffeeResponseList.add(new CoffeeResponse(
+                    coffee.getId(),
+                    coffee.getType(),
+                    coffee.getName(),
+                    coffee.getPrice()
+            ));
+        }
+
+        return coffeeResponseList;
     }
+
     //get coffee by Id
     @GetMapping("/coffees/{id}")
-    public Coffee getCoffeeById(@PathVariable Long id){
-        return coffeeService.getCoffeeById(id);
+    public CoffeeResponse getCoffeeById(@PathVariable Long id){
+        Coffee coffee = coffeeService.getCoffeeById(id);
+        return new CoffeeResponse(
+                coffee.getId(),
+                coffee.getType(),
+                coffee.getName(),
+                coffee.getPrice()
+        );
     }
+
     //create Coffee
     @PostMapping(value = "/coffees", consumes = "application/json")
-    public Coffee createCoffee(@RequestBody @Valid CreateCoffeeRequest createCoffeeRequest){
-        return coffeeService.createCoffee(createCoffeeRequest);
+    public CoffeeResponse createCoffee(@RequestBody @Valid CreateCoffeeRequest createCoffeeRequest){
+        Coffee coffee = coffeeService.createCoffee(Coffee.builder()
+                .name(createCoffeeRequest.getName())
+                .type(createCoffeeRequest.getType())
+                .price(createCoffeeRequest.getPrice())
+                .build());
+        return new CoffeeResponse(
+                coffee.getId(),
+                coffee.getType(),
+                coffee.getName(),
+                coffee.getPrice()
+        );
     }
+
     //add coffee to purchase
     @PostMapping(value = "/coffees/purchases", consumes = "application/json")
-    public Coffee addCoffeeToPurchase(@RequestBody @Valid Long purchaseId, Long coffeeId){
-        return coffeeService.addCoffeeToPurchase(purchaseId, coffeeId);
+    public CoffeeResponse addCoffeeToPurchase(@RequestBody @Valid Long purchaseId, Long coffeeId){
+        Coffee coffee = coffeeService.addCoffeeToPurchase(purchaseId, coffeeId);
+        return new CoffeeResponse(
+                coffee.getId(),
+                coffee.getType(),
+                coffee.getName(),
+                coffee.getPrice()
+        );
     }
+
     //update Coffee
     @PutMapping("/coffees/{id}")
-    public void updateCoffee(@PathVariable Long id,@RequestBody @Valid CreateCoffeeRequest coffeeToEdit){
-        coffeeService.updateCoffee(id, coffeeToEdit);
+    public CoffeeResponse updateCoffee(@PathVariable Long id,@RequestBody @Valid CreateCoffeeRequest coffeeToEdit){
+        Coffee coffee = coffeeService.updateCoffee(id, coffeeToEdit);
+        return new CoffeeResponse(
+                coffee.getId(),
+                coffee.getType(),
+                coffee.getName(),
+                coffee.getPrice()
+        );
     }
     //remove coffee from purchase
     @DeleteMapping("/coffees/{id}")
@@ -54,6 +100,6 @@ public class CoffeeController {
 
     @DeleteMapping("/coffees/{id}")
     public void deleteCoffee(@PathVariable Long id){
-        coffeeService.deleteCoffee(id);
+        coffeeService.deleteCoffeeById(id);
     }
 }
