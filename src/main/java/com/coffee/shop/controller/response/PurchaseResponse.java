@@ -15,5 +15,4 @@ public class PurchaseResponse {
     private Long id;
     private Boolean isPaid;
     private CustomerResponse customerResponse;
-    private List<CoffeeResponse> coffeeResponseList;
 }

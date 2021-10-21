@@ -15,5 +15,4 @@ public class CustomerResponse {
     private Long id;
     private String name;
     private int age;
-    private List<PurchaseResponse> purchaseResponseList;
 }
