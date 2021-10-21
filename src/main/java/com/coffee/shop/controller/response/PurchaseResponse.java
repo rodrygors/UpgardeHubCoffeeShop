@@ -3,6 +3,7 @@ package com.coffee.shop.controller.response;
 import lombok.*;
 
 import javax.persistence.Entity;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,5 +16,4 @@ public class PurchaseResponse {
     private Long id;
     private Boolean isPaid;
     private CustomerResponse customerResponse;
-    private List<CoffeeResponse> coffeeResponseList;
 }

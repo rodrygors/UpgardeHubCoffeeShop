@@ -14,4 +14,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class CreatePurchaseRequest {
     private Boolean isPaid;
+    private Long customerId;
 }
