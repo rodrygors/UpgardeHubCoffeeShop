@@ -2,6 +2,7 @@ package com.coffee.shop.service;
 
 import com.coffee.shop.exception.CustomerNotFound;
 import com.coffee.shop.model.Customer;
+import com.coffee.shop.model.Purchase;
 import com.coffee.shop.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,6 @@ public class CustomerService {
     }
 
     public void deleteById(Long aLong) {
-
         Customer customerToDelete = this.findById(aLong);
         customerRepo.deleteById(aLong);
     }
