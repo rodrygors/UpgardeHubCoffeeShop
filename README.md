@@ -1,4 +1,6 @@
-# Bookstore SpringBoot API with MySQL- Backend Bootcamp Group 4
+# Coffee-Shop SpringBoot API with MySQL- Backend Bootcamp Group 4
+
+
 
 
 
@@ -10,13 +12,23 @@ This document provides an example of a Coffee Shop REST API.
 
 
 
+
+
 Main features:
 
-- Manage your purchase of coffee.
+
+
+- Manage your customers purchases of coffee.
+
+
 
 - Add/Update/Delete coffees/customers/purchases by ID.
 
+
+
 - Add new coffees/customers/purchases by ID.
+
+
 
 
 
@@ -28,7 +40,11 @@ Main features:
 
 
 
+
+
 ## coffee-controller
+
+
 
 
 
@@ -36,11 +52,19 @@ Main features:
 
 | HTTP METHOD | GET |
 
+
+
 | ----------- | --------------- |
 
-| CRUD OP | CREATE
+
+
+| CRUD OP | READ
+
+
 
 | /api/coffees| Get all coffees
+
+
 
 | /api/getCoffeeById{id}| Get coffee by ID
 
@@ -49,11 +73,19 @@ Main features:
 
 
 
-| HTTP METHOD | CREATE |
+
+
+| HTTP METHOD | POST |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | POST
+
+
+| CRUD OP | CREATE
+
+
 
 | /api/coffee-create | Create a new coffee
 
@@ -61,11 +93,19 @@ Main features:
 
 
 
-| HTTP METHOD | UPDATE |
+
+
+| HTTP METHOD | PUT |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | PUT
+
+
+| CRUD OP | UPDATE
+
+
 
 | /api/updateCoffee/{id} | Update coffee by ID
 
@@ -73,13 +113,23 @@ Main features:
 
 
 
+
+
 | HTTP METHOD | DELETE |
+
+
 
 | ----------- | --------------- |
 
+
+
 | CRUD OP | DELETE
 
+
+
 | /api/deleteCofee/{id} | Delete coffee by ID
+
+
 
 
 
@@ -92,13 +142,23 @@ Main features:
 
 
 
+
+
 | HTTP METHOD | GET |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | CREATE
+
+
+| CRUD OP | READ
+
+
 
 | /api/customers | Get all customeres
+
+
 
 | /api/getCustomersById/{id} | Get customers by ID
 
@@ -106,11 +166,19 @@ Main features:
 
 
 
-| HTTP METHOD | CREATE |
+
+
+| HTTP METHOD | POST |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | POST
+
+
+| CRUD OP | CREATE
+
+
 
 | /api/customer-create | Add a new customer
 
@@ -118,11 +186,19 @@ Main features:
 
 
 
-| HTTP METHOD | UPDATE |
+
+
+| HTTP METHOD | PUT |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | PUT
+
+
+| CRUD OP | UPDATE
+
+
 
 | /api/updateCustomer/{id} | Update customer by ID
 
@@ -130,13 +206,23 @@ Main features:
 
 
 
+
+
 | HTTP METHOD | DELETE |
+
+
 
 | ----------- | --------------- |
 
+
+
 | CRUD OP | DELETE
 
+
+
 | /api/deleteCustomer/{id} | Delete customer by ID
+
+
 
 
 
@@ -148,13 +234,23 @@ Main features:
 
 
 
+
+
 | HTTP METHOD | GET |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | CREATE
+
+
+| CRUD OP | READ
+
+
 
 | /api/purchases | Get all purchases
+
+
 
 | /api/getPurchasesById/{id} | Get purchases by ID
 
@@ -162,11 +258,19 @@ Main features:
 
 
 
-| HTTP METHOD | CREATE |
+
+
+| HTTP METHOD | POST|
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | POST
+
+
+| CRUD OP | CREATE
+
+
 
 | /api/purchase-create | Add a new purchase
 
@@ -174,11 +278,19 @@ Main features:
 
 
 
-| HTTP METHOD | UPDATE |
+
+
+| HTTP METHOD | PUT |
+
+
 
 | ----------- | --------------- |
 
-| CRUD OP | PUT
+
+
+| CRUD OP | UPDATE
+
+
 
 | /api/updatePurchase/{id} | Update purchase by ID
 
@@ -186,10 +298,18 @@ Main features:
 
 
 
+
+
 | HTTP METHOD | DELETE |
+
+
 
 | ----------- | --------------- |
 
+
+
 | CRUD OP | DELETE
+
+
 
 | /api/deletePurchase/{id} | Delete purchase by ID
