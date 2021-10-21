@@ -7,9 +7,11 @@ import com.coffee.shop.model.Coffee;
 import com.coffee.shop.model.Purchase;
 import com.coffee.shop.repository.CoffeeRepository;
 import com.coffee.shop.repository.PurchaseRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CoffeeService {
     private final CoffeeRepository coffeeRepository;
     private final PurchaseRepository purchaseRepository;

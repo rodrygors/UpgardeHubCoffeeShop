@@ -93,7 +93,7 @@ public class CoffeeController {
         );
     }
     //remove coffee from purchase
-    @DeleteMapping("/coffees/{id}")
+    @DeleteMapping("/coffees/purchases/{id}")
     public void removeCoffeeFromPurchase(@PathVariable Long purchaseId, Long coffeeId){
         coffeeService.removeCoffeeFromPurchase(purchaseId, coffeeId);
     }
